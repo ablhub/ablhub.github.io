@@ -2,6 +2,9 @@
 body {
 	padding: 0;
 	margin: 0;
+}
+body, div, h1, h2, h3, p, a, ul, li, span, ol, section, i, b, button {
+	font-family: 'Roboto', sans-serif;
 	
 }
 
@@ -28,15 +31,46 @@ body {
 .menu li a {
 	color: #000;
 	text-decoration: none;
-	font-family: Roboto;
 	font-size: 15px;
+	letter-spacing: 0.125em;
+
 	
 }
 
 .menu li {
 	margin-right: 40px
 }
+#left-content {
+	padding: 45px 45px;
+}
+.col-6{
+	margin-top: 91px;
+}
+h1 {
+	font-size: 20px;
+	font-weight: 300;
+	text-align: center;
+	
+}
+h1 > span {
+	font-weight: 500;
+}
 
-.carousel {
-	width: 500px;
+p {
+	font-size: 15px;
+	padding: 40px;
+	font-weight: 300;
+	text-align: center;
+	letter-spacing: 0.125em;
+
+}
+
+
+.carousel{
+	padding: 15px;
+	background-color: #FFF;
+	border-radius: 7px;
+	box-shadow: 7px 7px 23px rgba(0, 0, 0, 0.25);
+	
+
 }
