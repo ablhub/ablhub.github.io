@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 id="title"></h1>
+    <input type="text" id="amount">
+    <select id="to" onchange="calculate()">
+    </select>
+    <h2 id="ans"></h2>
+    <script>
+        getData();
+        let currentData;
+        async function getData(){
+            await fetch('https://api.exchangeratesapi.io/latest')
+            .then(response => response.json())
+            .then(data => currentData = data);
+            console.log(currentData);
+            document.getElementById("title").innerHTML = `Base: ${currentData.base}`
+            var out = '';
+            for (var p in currentData.rates) {
+                out += `<option value=${p}>${p}</option>`;
+            }
+            document.getElementById("to").innerHTML = out;
+        }
+        function calculate(){
+            let amount = document.getElementById("amount").value;
+            let to = document.getElementById("to").value;
+            document.getElementById("ans").innerHTML = currentData.rates[to] * amount;
+        }
+    </script>
+</body>
+</html>

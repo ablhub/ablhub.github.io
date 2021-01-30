@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Untitled Document</title>
+</head>
+
+<body>
+	<h1 id="setup">Вопрос</h1>
+	<h2 id="punchline">Ответ</h2>
+	<button id="refresh" onclick="getJokes()">Обновить</button>
+	
+	<script>
+		let jokes;
+		async function getJokes(){
+			await fetch('https://official-joke-api.appspot.com/random_joke')
+			.then(response => response.json())
+			.then(data => jokes = data);
+			document.getElementById("setup").innerHTML = jokes.setup;
+			document.getElementById("punchline").innerHTML = jokes.punchline;
+		}
+	
+	</script>
+</body>
+	
+</html>
